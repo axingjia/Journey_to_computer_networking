@@ -10,7 +10,9 @@ Summary:
 * different attacks and how to make it more secure
 * brief history
 
-[term]Host/End system: devices that connect to the network  
+### Nut and Bolt Description
+
+[term]Host/End system: devices that connect to the network, because they host(that is, run)  application programs such as a Web browser program, a Web server program, an e-mail client program, or an e-mail server program. 
   
 [term]End systems are connected together by a network of ** communication links ** and **packet switches**. communication link example: physical media including coaxial cable, copper wire, optical fiber and radio spectrum 
    
@@ -30,6 +32,33 @@ independently, runs the IP protocol (see below), and conforms to certain naming 
 
 [term]Internet Protocol: specifies the format of the packets that are sent and received among routers and end systems
 
-[term]**Internet standards** are developed by the Internet Engineering Task Force (IETF). The IETF standards documents are called **requests for comments (RFCs)**
+[term]**Internet standards** are developed by the Internet Engineering Task Force (IETF). The IETF standards documents are called **requests for comments (RFCs)** RFC define protocols such as TCP, IP, HTTP, SMTP. There are currently more than 6,000 RFC.
+
+### Service Description
+A different angle: an infrastructure that provides services to applications
+
+[term]distributed application: application that involve multiple end systems that exchange data with each other. ex: Web surfing, social networks, instant messaging, Voiceover-IP (VoIP), video streaming, distributed games, peer-to-peer (P2P) file sharing, television over the Internet, remote login
+
+[term]End systems attached to the Internet provide an **Application Programming Interface (API)** that specifies how a program running on one end system asks the Internet infrastructure to deliver data to a specific destination program running on another end system.
+
+[term]Protocol: A protocol defines the format and the order of messages exchanged between two or more communicating entities, as well as the actions taken on the transmission and/or receipt of a message or other event.
+
+[cool] Mastering the field of computer networking is equivalent to understanding the what, why, and how of networking protocols.
+
+[Wild thought]Create a internet end system. Hint: IOT
+
+[now you know]hosts are sometimes further divided into two categoires: clients and servers. Informally, clients tend to be desktop and mobile PCs, smartphones, and so on, whereas servers tend to be more powerful machines that store and distribute Web pages, stream video, relay e-mail, and so on. Nowadays, most of the servers from which we receive search results, e-mail, Web pages, and videos reside in large data centers. For example, Google has 30–50 data centers, with many having more than one hundred
+thousand servers
+
+### Access Network
+
+Today, the two most prevalent types of broadband residential access are **digital subscriber line (DSL)** and cable. The old way namely.     
+When the downstream and upstream rates are different, the access is said to be asymmetric
+
+[Cool] fiber to the home (FTTH): As the name suggests, the FTTH concept is simple—provide an optical fiber path from the CO directly to the home. 
+
+read to page 17
+
+
 
 
