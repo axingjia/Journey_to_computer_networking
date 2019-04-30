@@ -51,14 +51,67 @@ A different angle: an infrastructure that provides services to applications
 thousand servers
 
 ### Access Network
+The network that physically connects an end system to the first router on a path from the end system to any other distant end system.
 
 Today, the two most prevalent types of broadband residential access are **digital subscriber line (DSL)** and cable. The old way namely.     
 When the downstream and upstream rates are different, the access is said to be asymmetric
 
 [Cool] fiber to the home (FTTH): As the name suggests, the FTTH concept is simple—provide an optical fiber path from the CO directly to the home. 
 
-read to page 17
+[cool]Speed:    
+Ethernet: 100Mbps access to the Ethernet switch    
+FTTH downstream: 20Mbps   
+cable: 13Mbps    
+DSL: 5Mbps    
+Satelite: 1Mbps    
+dial-up access: 56kbps   
+Wireless LAN access based on IEEE 802.11 technology: 56 Mbps   
 
+3G: provide packet switched wide-area wireless Internet access at speeds in excess of 1 Mbps.    
+LTE: long term evolution: in excess of 10Mbps, downstream of many tens of Mbps
 
+### Physical Media
+HFC uses a conbination of fiber cable and coaxial cable     
+DSL and Ethernet use copper wire    
+mobile access networks use the radio spectrum
 
+[term]physical medium: can takes many shapes and ofrms and doesn't have to be of the same type for each transmitter-receiver pair along the path. Ex: twisted-pair copper wire, coaxial cable, multimode fiber-optic cable, terrestrial radio spectrum, and satellite radio spectrum.    
+Physical media fall into two categories: guided media and unguided media.   
+With guided media, the waves are guided along a solid medium, such as cable and wire; with unguided media, the waves propagate in the atmosphere and in outer space, such as a wireless LAN or a digital satellite channel.    
+phyiscal link is often cheaper than other networking cost. It's the labor cost that is high.
+
+### Twisted-Pair Copper Wire 
+used by telephone network    
+speed for LANs: 10 Mbps to 10 Gbps, depend on the thickness of the wire and the distance transmitter and receiver    
+twisted pair has emerged as the dominant solution for high-speed LAN networking.
+
+### Coaxial Cable
+quite common in cable television systems 
+
+### Fiber Optics 
+Fiber optics are often used as the preferred long-haul guided transmission media, particularly for overseas links.    
+Prevalent in the backbone of the Internet
+
+### Terrestrial Radio Channels
+[cool]personal device such as wireless headsets, keyboards, and medical device operate over short distances(one or two meters); the wireless LAN technologies use local-area radio channels (a few hundred meters); the cellular access technologies use wide-area radio channel(tens of kilometers)
+
+### Satellite Radio Channel 
+a substrantial signal propagation delay of 280 millisecond    
+operate at speeds of hundreds of Mbps    
+often used in areas without access to DSL or cable-based Internet access
+
+## The Network Core 
+The mesh of packet switches and links that interconnects the Internet's end systems
+
+[term]store-and-forward transmission: means the packet switch must receive the entire packet before it can begin to transmit the first bit of the packet onto the outbound link.
+
+let's calculate how long it takes to transmit using store-and-forward transmission. The source begins to transmit at time 0; at time L/R seconds,  the source has transmitted the entire packet, and
+the entire packet has been received and stored at the router (since there is no propagation delay). At time L/R seconds, since the router has just received the entire packet, it can begin to transmit the packet onto the outbound link towards the destination; at time 2L/R, the router has transmitted the entire packet, and the entire packet has been received by the destination. Thus, the total delay is 2L/R. If the switch instead forwarded bits as soon as they arrive (without first receiving the entire packet), then the total delay would be L/R since bits are not held up at the router 
+
+### Queuing delay
+If an arriving packet needs to be transmitted onto a link but finds the link busy with the transmission of another packet, the arriving packet must wait in the output buffer. Thus, in addition to the store-and-forward delays, packets suffer output buffer **queuing delays**. 
+
+These delays are variable and depend on the level of congestion in the network. Since the amount of buffer space is finite, an arriving packet may find that the buffer is completely full with other packets waiting for transmission. In this case, **packet loss** will occur—either the arriving packet or one of the already-queued packets will be dropped
+
+page 26
 
