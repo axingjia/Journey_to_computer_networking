@@ -113,5 +113,36 @@ If an arriving packet needs to be transmitted onto a link but finds the link bus
 
 These delays are variable and depend on the level of congestion in the network. Since the amount of buffer space is finite, an arriving packet may find that the buffer is completely full with other packets waiting for transmission. In this case, **packet loss** will occur—either the arriving packet or one of the already-queued packets will be dropped
 
-page 26
+### Forwarding Tables and Routing Protocols 
+Question: how does the router determine which link it should forward the packet onto?    
+Explanation: Packet forwarding is actually done in different ways in different types of computer networks. Here, we briefly describe how it is done in the Internet.
 
+1. When a source end system wants to send a packet to a destination end system, the source includes the destination's IP addressin the packet's header.
+2. When a packet arrives at a router in the network, the router examines a portion of the packet's destination address and forward the packet to an adjacent router. 
+3. More specifically, each router has a forwarding table that maps destination address(or portions of the destination addresses) to that router's outbound links 
+4. When a packet arrives at a router, the router examines the address and searches its forwarding table, using this destination address, to find the appropriate outbound link.
+5. The router then directs the packet to this outbound link
+
+[term]routing protocol: determine the shortest path from each router to each destination and use the shortest path results to configure the forwarding tables in the routers.
+
+### Circuit Switching
+There are two fundamental approaches to move data through a network of links and switches: **circuit switching** and **packet switching**
+
+[term]In circuit-switched networks, the resources needed along a path(buffers, link transmission rate) to provide for communication between the end systems are reserved for the duration of the communication session between the end systems. In packet-switched networks, these resources are not reserved. As an analogy, think of a restaurant that needs reservation.
+
+Traditional telephone networks are examples of circuit-switched networks.
+
+[term]A connection for which the switches on the path between the sender and receiver maintain connection state for that connection. In the jargon of telephony, this connection is called a circuit. 
+
+For example, if each link has four circuits, for each each link used by the end-to-end connection, the connection get one fourth of the link's total transmission capacity for the duration of the connection.
+
+### Multiplexing in Circuit-Switched network 
+skim
+
+### Package Switch Versus Circuit Switching
+Packet switching is not suitable for real-time services(telephone call and video conference calls)    
+Although packet switching and circuit switching are both prevalent in today’s telecommunication networks, the trend has certainly been in the direction of packet switching. Even many of today’s circuit-switched telephone networks are slowly migrating toward packet switching. In particular, telephone networks often use packet switching for the expensive overseas portion of a telephone call.
+
+### A Network of Networks
+
+page 32
