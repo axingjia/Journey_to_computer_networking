@@ -278,9 +278,13 @@ The application develoepr has control of everything on the application-layer sid
 IP address is a 32-bit quantity.
 [Cool]A Web server is identified by port number 80, a mail server process( using the SMTP protocol) is identified by port number 25
 
-page 91
-
 What are the services that a transport-layer protocol can offer to applications invoking it? We can broadly classify the possible services along four dimensions: reliable data transfer, throughput, timing, and security.
 
-[term]Reliable data tranfer: guarantee that the data sent by one end of the application is delivered correctly and completely to the other end of the application
+[term]Reliable data tranfer: guarantee that the data sent by one end of the application is delivered correctly and completely to the other end of the application     
+[term]loss-tolerant application: ex: multimedia application such as conversational audio/video.
+
+Throughput: is the rate at which the sending process can deliver bits to the receiving process. Appealing to: Internet telephony application(encodes voice at 32kbps). Application s that have throughput requirements are said to be **bandwidth-sensitive applications**. **elastic applications** can make use of as much, or as little, throughput as happens to be available. Electronic mail, file transfer, and Web transfers are all elastic applications.
+
+page 92
+
 
