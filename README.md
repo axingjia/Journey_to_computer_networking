@@ -144,5 +144,121 @@ Packet switching is not suitable for real-time services(telephone call and video
 Although packet switching and circuit switching are both prevalent in today’s telecommunication networks, the trend has certainly been in the direction of packet switching. Even many of today’s circuit-switched telephone networks are slowly migrating toward packet switching. In particular, telephone networks often use packet switching for the expensive overseas portion of a telephone call.
 
 ### A Network of Networks
+The access ISPs themselves must be interconnected.
 
-page 32
+Network Structure 1: Interconnects all the access ISPs with a single global transit ISP.    
+Since the access ISP pays the global transit ISP, the access ISP is said to be a customer and the global transit ISP is said to be a provider.
+
+Network Structure 2: 
+* Now if some company builds and operates a global transit ISP that is profitable, then it is natural for other companies to build their own global transit ISPs and compete with the original global transit ISP.    
+* It is a two-tier hierarchy with global transmit providers residing at the top tier and access ISPs at the bottom tier.     
+* In reality, although some ISPs do have impressive global coverage and do directly connect with many access ISPs, no ISP has presence in each and every city in the world. Instead, in any given region, there may be a regional ISP to which the access ISPs in the region connect. Each regional ISP then connects to tier-1 ISPs. Tier-1 ISPs are similar to our (imaginary) global transit ISP; but tier-1 ISPs, which actually do exist, do not have a presence in every city in the world. 
+* Returning to this network of networks, not only are there multiple competing tier1 ISPs, there may be multiple competing regional ISPs in a region. In such a hierarchy, each access ISP pays the regional ISP to which it connects, and each regional ISP
+pays the tier-1 ISP to which it connects. (An access ISP can also connect directly to a tier-1 ISP, in which case it pays the tier-1 ISP). Thus, there is customer-provider relationship at each level of the hierarchy. 
+* Note that the tier-1 ISPs do not pay anyone as they are at the top of the hierarchy.
+*  To further complicate matters, in some regions,
+there may be a larger regional ISP (possibly spanning an entire country) to which the smaller regional ISPs in that region connect; the larger regional ISP then connects to a tier-1 ISP. For example, in China, there are access ISPs in each city, which connect to provincial ISPs, which in turn connect to national ISPs, which finally connect to tier-1 ISPs [Tian 2012]. We refer to this multi-tier hierarchy, which is still only a crude approximation of today’s Internet, as Network Structure 3.
+
+Network Structure 4:
+* To build a network that more closely resembles today’s Internet, we must add points of presence (PoPs), multi-homing, peering, and Internet exchange points (IXPs) to the hierarchical Network Structure 3. PoPs exist in all levels of the hierarchy, except for the bottom (access ISP) level. A PoP is simply a group of one or more routers (at the same location) in the provider’s network where customer ISPs can connect into the provider ISP. For a customer network to connect to a provider’s PoP, it can lease a high-speed link from a third-party telecommunications provider to directly connect one of its routers to a router at the PoP. 
+* [term] Any ISP (except for tier-1 ISPs) may choose to **multi-home**, that is, to connect to two or more provider ISPs. So, for example, an access ISP may multi-home with two regional ISPs, or it may multi-home with two regional ISPs and also with a tier-1 ISP. Similarly, a regional ISP may multi-home with multiple tier-1 ISPs. When an ISP multi-homes, it can continue to send and receive packets into the Internet even if one of its providers has a failure.
+*[term]As we just learned, customer ISPs pay their provider ISPs to obtain global Internet interconnectivity. The amount that a customer ISP pays a provider ISP reflects the amount of traffic it exchanges with the provider. To reduce these costs, a pair of nearby ISPs at the same level of the hierarchy can **peer**, that is, they can directly connect their networks together so that all the traffic between them passes over the direct connection rather than through upstream intermediaries. When two ISPs peer, it is typically settlement-free, that is, neither ISP pays the other. As noted earlier, tier-1 ISPs also peer with one another, settlement-free.
+*[term]Along these same lines, a third-party company can create an Internet Exchange Point (IXP) (typically in a stand-alone building with its own switches), which is a meeting point where multiple ISPs can peer together. There are roughly 300 IXPs in the Internet today [Augustin 2009]. We refer to this ecosystem—consisting of access ISPs, regional ISPs, tier-1 ISPs, PoPs, multi-homing, peering, and IXPs—as Network Structure 4.
+
+Network Structure 5:
+* Network Structure 5, builds on top of Network Structure 4 by adding content provider networks. 
+* ex: Google has 30 to 50 data centers distributed across North America, Europe, Asia, South America, and Australia.
+*  By creating its own network, a content provider not only
+reduces its payments to upper-tier ISPs, but also has greater control of how its services are ultimately delivered to end users.
+
+
+### Delay, Loss and Throughput in Packet-Switched Networks
+[term]throughput the amount of data per second that can be transferred    
+[term]nodal processing delay:     
+[term]queuing delay:    
+[term]transmission delay    
+[term]propagation delay
+[term]total nodal delay:
+
+SKIM 
+
+### Protocol Layers and Their Service Models
+Five-layer Internet Protocol stack:    
+Application     
+Transport    
+Network    
+Link    
+Physical
+
+Application: implemented in software in the end system;  
+Transport: implemented in software in the end system;  
+Network: The network layer is often a mixed implementation of hardware and software.     
+Link: Because the physical layer and data link layers are responsible for handling communication over a specific link, they are typically implemented in a network interface card (for example, Ethernet or WiFi interface cards) associated with a given link.
+Physical: Because the physical layer and data link layers are responsible for handling communication over a specific link, they are typically implemented in a network interface card (for example, Ethernet or WiFi interface cards) associated with a given link.
+
+Application HTTP, SMTP, FTP    
+Transport: TCP, UDP     
+Network: IP, routing protocol   
+Link: Ethernet, Wifi, cable access network's DOCSIS protocol     
+Physical: twisted-pair copper wire, single-mode fiber optics
+
+Application packet of information at this layer as a message    
+Transport: packet of information as segment     
+Network: packet as datagram    
+Link: packet as frame    
+Physical: bit
+
+The OSI model    
+SKIP
+
+### Encapsulation
+routers and link-layer switches are both packet switches    
+link-layer switches implement layers 1 and 2 physical and link    
+routers implement layers 1 through 3: physical, link, network    
+We’ll see later that while link-layer switches do not recognize IP addresses, they are capable of recognizing layer 2 addresses, such as Ethernet addresses. 
+
+SKIM explanation
+
+### Networks Under attack 
+malware    
+DDos attack    
+packet sniffer 
+IP spoofing  /end-point masquerading    
+man in the middle     
+    
+SKIM
+
+### History of Network
+development of packet switching:1961-1972    
+proprietary network and internetworking： 1972-1980
+A Proliferation of Networks: 1980-1990 
+The Internet Explosion: 1990
+The New Millennium
+
+SKIM
+
+
+## *Done Chapter 1!!! A pad on my back*
+(One thing about studying comp sci, the review questions are tough..they are a mix of new concept, creativity, math, and understanding of the material. One good point of why studying it in a lecture would be torturing)
+
+# Chapter 2: Application Layer
+
+### Network Application Architectures
+Two predominant application architectural paradigm: client-server architecture or the peer-to-peer architecture
+
+Client-server architecture:    
+client do not directly communicat with each other    
+Example: google with its data center
+
+P2P architecture
+minimal(or no) reliance on dedicated server 
+Many of today's most popular and traffic-intensive applications are based on P2P. Ex: BitTorrent(file sharing), Xunlei(peer-assisted download acceleration), Skype(Internet Telephony), Kankan and PPstream(IPTV)
+
+some applications have hybrid architectures, combining both client-server and P2P elements. For example, for many instant messaging applications, servers are used to track the IP addresses of users, but user-to-user messages are sent directly between user hosts (without passing through intermediate servers).
+
+One of the most compelling features of P2P architectures is their self-scalability. For example, in a P2P file-sharing application, although each peer generates workload by requesting files, each peer also adds service capacity to the system by distributing files to other peers. P2P architectures are also cost effective, since they normally don’t require significant server infrastructure and server bandwidth (in contrast with clients-server designs with datacenters). 
+
+future P2P applications face three major challenges:    
+ISP Friendly
+Security   
+Incentives
