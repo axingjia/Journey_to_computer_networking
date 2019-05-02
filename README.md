@@ -239,7 +239,7 @@ SKIM
 
 
 ## *Done Chapter 1!!! A pad on my back*
-(One thing about studying comp sci, the review questions are tough..they are a mix of new concept, creativity, math, and understanding of the material. One good point of why studying it in a lecture would be torturing)
+(One thing about studying comp sci, the review questions are tough..they are a mix of new concept, creativity, math, and understanding of the material. One good point of why studying it in a lecture would be torturous)
 
 # Chapter 2: Application Layer
 
@@ -262,3 +262,21 @@ future P2P applications face three major challenges:
 ISP Friendly
 Security   
 Incentives
+
+### Processes Communicating
+How processes running on different hosts communicate
+#### Client and Server Processes 
+SKIM
+
+#### The Interface Between the Process and the Computer Network
+A process sends messages into, and receives messages from, the network through a software interface called a socket.    
+Socket is also referred to as the Application Programming Interface (API) between the application and the network.    
+The application develoepr has control of everything on the application-layer side of the socket but has little control  of the transport-layer side of the socket. The only control that the application developer has on the transport-layer side is (1) the choice of transport protocol and (2) perhaps the ability to fix a few transport-layer parameters such as maximum buffer and maximum segment sizes (to be covered in Chapter 3)
+
+
+### Addresssing Processes 
+IP address is a 32-bit quantity.
+[Cool]A Web server is identified by port number 80, a mail server process( using the SMTP protocol) is identified by port number 25
+
+page 91
+
