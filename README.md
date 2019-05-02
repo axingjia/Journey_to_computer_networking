@@ -280,3 +280,7 @@ IP address is a 32-bit quantity.
 
 page 91
 
+What are the services that a transport-layer protocol can offer to applications invoking it? We can broadly classify the possible services along four dimensions: reliable data transfer, throughput, timing, and security.
+
+[term]Reliable data tranfer: guarantee that the data sent by one end of the application is delivered correctly and completely to the other end of the application
+
