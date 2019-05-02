@@ -278,13 +278,41 @@ The application develoepr has control of everything on the application-layer sid
 IP address is a 32-bit quantity.
 [Cool]A Web server is identified by port number 80, a mail server process( using the SMTP protocol) is identified by port number 25
 
+
+### Transport Services Available to Applications
+
+When you develop an application, you must choose one of the available transport-layer protocols. How do you make this choice    
 What are the services that a transport-layer protocol can offer to applications invoking it? We can broadly classify the possible services along four dimensions: reliable data transfer, throughput, timing, and security.
 
 [term]Reliable data tranfer: guarantee that the data sent by one end of the application is delivered correctly and completely to the other end of the application     
 [term]loss-tolerant application: ex: multimedia application such as conversational audio/video.
 
-Throughput: is the rate at which the sending process can deliver bits to the receiving process. Appealing to: Internet telephony application(encodes voice at 32kbps). Application s that have throughput requirements are said to be **bandwidth-sensitive applications**. **elastic applications** can make use of as much, or as little, throughput as happens to be available. Electronic mail, file transfer, and Web transfers are all elastic applications.
+Throughput: is the rate at which the sending process can deliver bits to the receiving process. Appealing to: Internet telephony application(encodes voice at 32kbps). Applications that have throughput requirements are said to be **bandwidth-sensitive applications**. **elastic applications** can make use of as much, or as little, throughput as happens to be available. Electronic mail, file transfer, and Web transfers are all elastic applications.
 
-page 92
+Timing: A transport-layer protocol can also provide timing guarantees.    
+Timing guarantees can come in many shapes and forms.1. no more than 100 msec later. appealing to interactive real-time applications, such as Internet telephony, virtual environments, teleconferencing, and multiplayer games.
+
+Security: a transport protocol can encrypt all data transmitted. Other than confidentiality, there are data integrity, end-point authentication
+
+### Transport Services Provided by the Internet
+| application                         | Data Loss     | Throughput                               | Time Sensitive   | Comment                             |
+|-------------------------------------|---------------|------------------------------------------|------------------|-------------------------------------|
+| File transfer/download              | no loss       | elastic                                  | no               |                                     |
+| Email                               | No loss       | Elastic                                  | No               | (same as above)                     |
+| Web document                        | No loss       | Elastic(few kbps)                        | No               | (same as above)                     |
+| internet telephony/video conference | Loss tolerant | Audio: few kbps-1Mbps Video 10 kps-5Mbps | Yes:100s of msec |                                     |
+| Streaming stored audio/video        | loss-tolerant | same as above                            | Yes: few second  | same as above                       |
+| Interactive games                   | loss-tolerant | few kbps-10 kbps                         | Yes:100s of msec | same as above basically             |
+| Instant message                     | no loss       | Elastic                                  | Yes and no       | kind of the same as the first three |
+
+### TCP Services 
+INcludes a connection-oriented service and a reliable data transfer service.    
+keyword:handshake, connection-oriented service, reliable data transfer service, congestion-control mechanism(throttle a sending process when the network is congested between sender and receiver; congestion control also attemps to limit each TCP connection to its fair share of network bandwidth)
+
+Story: Neither TCP nor UDP provide encryption, so it can easily get sniffed among all the links between the sender and receiver, if the password is in cleartext    
+Secure Socket Layer, an enhancement for TCP    
+enhancements being implemented in the application layer
+
+page 95
 
 
