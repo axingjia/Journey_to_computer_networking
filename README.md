@@ -313,6 +313,25 @@ Story: Neither TCP nor UDP provide encryption, so it can easily get sniffed amon
 Secure Socket Layer, an enhancement for TCP    
 enhancements being implemented in the application layer
 
-page 95
+### UDP Services 
+No-frills, lightweight transport protocol, providing minimal services.  UDP is connectionless, so there is no handshaking before the two processes start to communicate. UDP provides an unreliable data transfer service—that is, when a process sends a message into a UDP socket, UDP provides no guarantee that the message will ever reach the receiving process. Furthermore, messages that do arrive at the receiving process may arrive out of order.
 
+### Services Not Provided by Internet Transport Protocols
+missing was any mention of throughput or timing guarantees—services not provided by today’s Internet transport protocols    
+but its okay.    
+These applications often work fairly well because they have been
+designed to cope, to the greatest extent possible, with this lack of guarantee    
+In summary, today’s Internet can often provide satisfactory service to time-sensitive applications, but it cannot provide any timing or throughput guarantees.
+
+Internet telephony applications (such as Skype) can often tolerate some loss but require a minimal rate to be effective, developers of Internet telephony applications usually prefer to run their applications over UDP, thereby circumventing TCP’s congestion control mechanism and packet overheads. But because many firewalls are configured to block (most types of) UDP traffic, Internet telephony applications often are designed to use TCP as a backup if UDP communication fails.
+
+## The Web and HTTP 
+###### Overview of HTTP
+HTTP uses TCP    
+Because an HTTP server maintains no information about the clients, HTTP is said to be a stateless protocol
+
+###### Non-Persistent and Persisten Connection
+question: should each request/response pair be sent over a separate TCP connection, or should all of the requests and their corresponding responses be sent over the same TCP connection? In the former approach, the application is said to use non-persistent connections; and in the latter approach, persistent connections.     
+Although HTTP uses persistent connections in its default mode,
+HTTP clients and servers can be configured to use non-persistent connections instead.
 
