@@ -335,3 +335,108 @@ question: should each request/response pair be sent over a separate TCP connecti
 Although HTTP uses persistent connections in its default mode,
 HTTP clients and servers can be configured to use non-persistent connections instead.
 
+
+###### HTTP with Non-Persistent Connections 
+Way for it to communicate SKIM
+
+###### HTTP with Persistent connections
+It has some shortcomings.
+1. a brand-new connection must be established and maintained for each requested object. For each of these connections, TCP buffers must be allocated and TCP variables must be kept in both the client and server. This can place a significant burden on the Web server, which may be serving requests from hundreds of different clients simultaneously.
+2. as we just described, each object suffers a delivery delay of two RTTs— one RTT to establish the TCP connection and one RTT to request and receive an object.
+
+###### HTTP Message Format 
+
+Request:    
+GET /somedir/page.html HTTP/1.1    ->request line    
+Host: www.someschool.edu   \    
+Connection: close          \   :non-persistent connection     
+User-agent: Mozilla/5.0    -> header line  :the browser type
+Accept-language: fr        /   : prefer to receive a French version of the object; its also a content negotiation header
+
+Response Message:    
+HTTP/1.1 200 OK    ->status line    
+Connection: close     \    
+Date: Tue, 09 Aug 2011 15:44:04 GMT \       
+Server: Apache/2.2.3 (CentOS)    \    
+Last-Modified: Tue, 09 Aug 2011 15:11:03 GMT -->header lines : critical for object caching, both in the local client and in network cache server(known as proxy servers)
+Content-Length: 6821    /    
+Content-Type: text/html    /    
+(data data data data data ...)     
+
+###### cookie
+has four component:
+* cookie header line in the HTTP response message;
+* cookie header line in the HTTP request message
+* cookie file kept on the user's end system and managed by the user's browser;
+* a back-end database at the website 
+
+Ex: The amazon web server responds to Susan's browser, including in the HTTP response a Set-cookie: header    
+
+Set-cookie: 1678
+
+cookie can be used to track user 
+
+###### Web Caching
+Explanation of how it makes a network faster*
+
+Conditional GET: an HTTP request message is a so-called conditional GET message if 1) the request message uses the GET method and 2) the request message includes an If-Modified_since: header line
+
+First， on the behalf of a requesting browser, a proxy cache sends a request message to a web server. Second, the web server sends a response message with the requested object to the cache. Third, the cache forwards the object to the browser and caches the object locally. Another request comes and the cache performs an up-to-date check by issuing a conditional GET. It sends:
+
+GET /fruit/kiwi.gif HTTP/1.1    
+Host: www.exotiquecuisine.com    
+If-modified-since: Wed, 7 Sep 2011 09:23:24
+
+It means send the object only if the object has been modified since the specified date.
+
+The server can reply if not modified 
+
+HTTP/1.1 304 Not Modified    
+Date: Sat, 15 Oct 2011 15:39:29    
+Server: Apache/1.3.0 (Unix)    
+
+(empty entity body)
+
+
+### File Transfer: FTP
+SKIM 
+
+### Electronic Mail in the Internet
+user agent
+mail servers 
+Simple Mail Transfer Protocol(SMTP)
+
+Brief explanation of how it works 
+
+###### Comparison with HTTP 
+HTTP is mainly a pull protocol--someone loads information on a web server and users use HTTP to pull the information from the server at their convenience.    
+While SMTP is primarily a push protocol--the sending mail server pushes the file to the receiving mail server. 
+
+SKIM 
+
+###### Mail Message format
+SKIM
+###### Mail Access Protocols     
+Post Office Protocol--Version3(POP3)    
+Internet Mail Access Protocol(IMAP)
+
+SMTP is used to transfer mail from the sender’s mail server to the recipient’s mail server; SMTP is also used to transfer mail from the sender’s user agent to the sender’s mail server. A mail access protocol, such as POP3, is used to transfer mail from the recipient’s mail server to the recipient’s user agent.
+
+**POP3**    
+port 110
+three phase, authorization, transaction, update    
+SKIP
+
+**IMAP** 
+A mail access protocol， more features than POP3. Associate each message with a folder; has commands that permit a user agent to obtain components of messages 
+
+### DNS---The Internet's Directory Service
+Domain name system(DNS) is 1) adistributed database implemented in a hierachy of NDS servers and 2) an application layer protocol that allows hosts to query the distributed database    
+port 53    
+DNS provides host aliasing, mail server aliasing, load distribution
+DNS uses UDP    
+
+page 136
+
+
+
