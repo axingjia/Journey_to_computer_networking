@@ -432,11 +432,38 @@ A mail access protocol， more features than POP3. Associate each message with a
 
 ### DNS---The Internet's Directory Service
 Domain name system(DNS) is 1) adistributed database implemented in a hierachy of NDS servers and 2) an application layer protocol that allows hosts to query the distributed database    
+
 port 53    
-DNS provides host aliasing, mail server aliasing, load distribution
-DNS uses UDP    
+
+
+
+DNS provides     
+* host aliasing: a host with a complicated hostname can have one or more alias names. Ex: a hostname such as relay1.west-coast.enterprise.com have have 1. enterprise.com and 2. www.enterprise.com.    
+In this case, the hostname is said to be a canonical hostname
+* mail server aliasing: hotmail.com instead of relay1.west-coast.hotmail.com. DNS can be invoked by a mail application.    
+CL: MX record permits a company's mail server and Web server to have identical (aliased) hostnames; for example, a company's Web server and mail server can both be called enterprise.com
+* Load distribution: DNS is also used to perform load distribution among replicated servers. Busy sites, such as cnn.com are replicated over multiple servers, with each server running on a different end system and each having a different IP address. For replicated Web servers, a set of IP addresses is thus associated with one canonical hostname. The DNS database contains this set of IP addresses. When clients make a DNS query for a name mapped to a set of addresses, the server responds with the entire set of IP addresses, but rotates the ordering of the addresses within each reply.
+
+###### Overview of How DNS Works
+The application will invoke the client side of DNS, specifying the hostname that needs to be translated. DNS in the user's host then takes over, sending a query message into the netowrk. After a delay, DNS in the user's host receives a DNS reply message that provides the desired mapping. This mapping is then passed to the invoking application.     
+It's DNS is a black box to the application host.
+
+So how DNS works actually?
+
+The client first contacts one of the root, which returns IP addresses for TLD servers for the top level domain com. The client then contacts one of these TLD servers, which returns the IP address of an authoritative server for amazon.com. Finally, the client contacts one of the authoritative servers for amazon.com, which returns the IP address for the hostname www.amazon.com
+
+Root DNS servers: each server is actually a network of replicated servers, for both security and reliability purpose. All together, there are 247 root servers
+
+Top-level domain(TLD) servers:SKIM 
+
+authoritative DNS servers SKIM An organization ca nchoose to implement its own authoritative DNS server to hold these records that map the names of those hosts to IP addresses; alternatively, the organization can pay to have these records stored in an authoritative DNS server of some service provider. Most universities and large companies implement and maintain their own primary and secondary(backup) authoritative DNS server
+
+local DNS server: Local DNS server doesn't strictly belong to the hierarchy of servers but is nevertheless central to the DNS architecutre. Each ISP---such as a university, an academic department, an employee's company, or a residential ISP--has a local DNS server, aka default name server.     
+When a host connects to an ISP, the ISP provides the host with the 
+
+DNS caching: in order to improve the delay performance and to reduce the number of DNS messages ricocheting around the Internet.    
+In a query chain, when a
+DNS server receives a DNS reply (containing, for example, a mapping from a hostname to an IP address), it can cache the mapping in its local memory.
 
 page 136
-
-
 
