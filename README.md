@@ -459,11 +459,20 @@ Top-level domain(TLD) servers:SKIM
 authoritative DNS servers SKIM An organization ca nchoose to implement its own authoritative DNS server to hold these records that map the names of those hosts to IP addresses; alternatively, the organization can pay to have these records stored in an authoritative DNS server of some service provider. Most universities and large companies implement and maintain their own primary and secondary(backup) authoritative DNS server
 
 local DNS server: Local DNS server doesn't strictly belong to the hierarchy of servers but is nevertheless central to the DNS architecutre. Each ISP---such as a university, an academic department, an employee's company, or a residential ISP--has a local DNS server, aka default name server.     
-When a host connects to an ISP, the ISP provides the host with the 
+And then the local DNS server acts a proxy, forwarding the query into the DNS server hierarchy.    
+How Local DNS server works: SKIM send 4 query to 4 DNS server and get 4 back
 
 DNS caching: in order to improve the delay performance and to reduce the number of DNS messages ricocheting around the Internet.    
-In a query chain, when a
 DNS server receives a DNS reply (containing, for example, a mapping from a hostname to an IP address), it can cache the mapping in its local memory.
 
-page 136
+### DNS Records and Messages
+The DNS servers that together implement the DNS distributed database store **resource records(RR)**, including RRs that provide hostname-to-IP address mapping.
+
+A resource record is a four tupple that contains the following fields:
+
+TTL: time to live of the resource record; it determines when a resource should be removed from a cache.
+
+
+
+page 139
 
