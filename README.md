@@ -435,8 +435,6 @@ Domain name system(DNS) is 1) adistributed database implemented in a hierachy of
 
 port 53    
 
-
-
 DNS provides     
 * host aliasing: a host with a complicated hostname can have one or more alias names. Ex: a hostname such as relay1.west-coast.enterprise.com have have 1. enterprise.com and 2. www.enterprise.com.    
 In this case, the hostname is said to be a canonical hostname
@@ -470,9 +468,51 @@ The DNS servers that together implement the DNS distributed database store **res
 
 A resource record is a four tupple that contains the following fields:
 
+(Name, Value, Type, TTL)
+
 TTL: time to live of the resource record; it determines when a resource should be removed from a cache.
 
+* If Type=A, then Name is a hostname and Value is the IP address for the hostname. Thus, a Type A record provides the standard hostname-to-IP address mapping. As an example, (relay1.bar.foo.com, 145.37.93.126, A)
+is a Type A record.
+* If Type=NS, then Name is a domain (such as foo.com) and Value is the hostname of an authoritative DNS server that knows how to obtain the IP addresses for hosts in the domain. This record is used to route DNS queries further along in the query chain. As an example, (foo.com, dns.foo.com, NS) is a Type NS record
+* If Type=CNAME, then Value is a canonical hostname for the alias hostname Name. This record can provide querying hosts the canonical name for a hostname. As an example, (foo.com, relay1.bar.foo.com, CNAME) is a
+CNAME record.
+* If Type=MX, then Value is the canonical name of a mail server that has an alias hostname Name. As an example, (foo.com, mail.bar.foo.com, MX)
+is an MX record. MX records allow the hostnames of mail servers to have simple aliases. Note that by using the MX record, a company can have the same aliased name for its mail server and for one of its other servers (such as its Web server). To obtain the canonical name for the mail server, a DNS client would query for an MX record; to obtain the canonical name for the other server, the DNS client would query for the CNAME record.
 
 
-page 139
+MY: {
+The material is dense. With DNS Record and I am already confused. 
+
+Here is a 10 minutes [video](https://www.youtube.com/watch?v=6uEwzkfViSM) that talks more about DNS record 
+* A records are used for IPv4 addresses. The Quad A records are used for IPv6 addresses
+
+Understand everything except NS(Name Server).
+
+Here is another video about [NS](https://www.youtube.com/watch?v=LAJFoKQxmz8)
+
+It's quite theoretical. I need to see it in practice.
+
+Here is another [video](https://www.youtube.com/watch?v=ikXLF31GrHs) in practice.
+* NS is quite involved and should only be dealt with by DNS administrator
+* Seem like a thing that I will never use
+
+A more simple explanation [video](https://www.youtube.com/watch?v=PrGDMTd_WzU)
+
+Case end
+
+}
+
+##### DNS Message
+SKIP (seems pretty useless information)
+
+##### Insert Records into the DNS Database 
+SKIP (seems pretty useless information)
+
+### Peer-to-Peer Application 
+* The peers are not owned by a service provider, but are instead desktops and laptops controlled by users.
+* We will examine two different applications that are particularly well-suited for P2P designs: file distribution, and database distributed over a large community of perrs (Distributed Hash Table (DHT))
+
+
+page 145
 
