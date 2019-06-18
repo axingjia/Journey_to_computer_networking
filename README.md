@@ -513,6 +513,35 @@ SKIP (seems pretty useless information)
 * The peers are not owned by a service provider, but are instead desktops and laptops controlled by users.
 * We will examine two different applications that are particularly well-suited for P2P designs: file distribution, and database distributed over a large community of perrs (Distributed Hash Table (DHT))
 
+SKIP
 
-page 145
+#### Socket Programming: Creating Network Applications
+
+##### Socket Programming with UDP
+
+        UDPClient.py
+
+        from socket import *
+        serverName = ‘hostname’
+        serverPort = 12000
+        clientSocket = socket(socket.AF_INET, socket.SOCK_DGRAM)
+        message = raw_input(’Input lowercase sentence:’)
+        clientSocket.sendto(message,(serverName, serverPort))
+        modifiedMessage, serverAddress = clientSocket.recvfrom(2048)
+        print modifiedMessage
+        clientSocket.close()
+        
+        UDPServer.py
+        
+        from socket import *
+        serverPort = 12000
+        serverSocket = socket(AF_INET, SOCK_DGRAM)
+        serverSocket.bind((’’, serverPort))
+        print ”The server is ready to receive”
+        while 1:
+            message, clientAddress = serverSocket.recvfrom(2048)
+            modifiedMessage = message.upper()
+            serverSocket.sendto(modifiedMessage, clientAddress)
+
+page 163
 
