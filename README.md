@@ -543,5 +543,21 @@ SKIP
             modifiedMessage = message.upper()
             serverSocket.sendto(modifiedMessage, clientAddress)
 
-page 163
 
+
+##### Socket Programming with TCP
+SKIP
+
+# Transport Layer
+
+Talking about logical communication in a mail service between two houses with all the kids analogy
+
+application messages = letters in envelopes    
+processes = cousins    
+hosts (also called end systems) = houses   
+transport-layer protocol = Ann and Bill     
+network-layer protocol = postal service (including mail carriers)   
+
+### Overview of the Transport layer in the Internet
+
+page 189
